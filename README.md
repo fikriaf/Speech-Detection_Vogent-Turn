@@ -151,6 +151,49 @@ Evaluate pronunciation and sentence completion in educational applications.
 
 **Example**: "The cat is..." [CONTINUE] → "...on the table" [COMPLETE]
 
+## Audio Samples
+
+This repository includes three audio samples for testing and demonstration:
+
+| File | Description | Context | Expected Result |
+|------|-------------|---------|-----------------|
+| `incomplete_number_sample.wav` | Speaker saying "My number is 804" | Incomplete phone number | CONTINUE (speaker will continue) |
+| `incomplete.wav` | Partial response | Incomplete statement | CONTINUE (speaker not finished) |
+| `complete.wav` | Speaker saying "My number is 8042221111" | Complete phone number | ENDPOINT (speaker finished) |
+
+These samples demonstrate the model's ability to distinguish between complete and incomplete utterances based on both audio cues (intonation, pauses) and conversational context.
+
+### Testing with Audio Samples
+
+```python
+from vogent_turn import TurnDetector
+import soundfile as sf
+
+detector = TurnDetector(compile_model=False)
+
+# Test with incomplete sample
+audio, sr = sf.read("incomplete_number_sample.wav")
+result = detector.predict(
+    audio,
+    prev_line="What is your phone number",
+    curr_line="My number is 804",
+    sample_rate=sr,
+    return_probs=True
+)
+print(f"Incomplete: {result['is_endpoint']}")  # Expected: False
+
+# Test with complete sample
+audio, sr = sf.read("complete.wav")
+result = detector.predict(
+    audio,
+    prev_line="What is your phone number",
+    curr_line="My number is 8042221111",
+    sample_rate=sr,
+    return_probs=True
+)
+print(f"Complete: {result['is_endpoint']}")  # Expected: True
+```
+
 ## Project Structure
 
 ```
@@ -159,6 +202,9 @@ Evaluate pronunciation and sentence completion in educational applications.
 ├── tes.py                       # Additional test examples
 ├── requirements.txt             # Python dependencies
 ├── README.md                    # This file
+├── incomplete_number_sample.wav # Audio sample: incomplete utterance
+├── incomplete.wav               # Audio sample: partial response
+├── complete.wav                 # Audio sample: complete utterance
 ├── vogent-turn/                 # Vogent Turn library source
 │   ├── vogent_turn/            # Core library code
 │   │   ├── __init__.py
