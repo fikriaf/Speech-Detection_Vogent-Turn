@@ -156,34 +156,19 @@ Evaluate pronunciation and sentence completion in educational applications.
 This repository includes three audio samples for testing and demonstration:
 
 ### 1. Incomplete Number Sample
-**File**: `incomplete_number_sample.wav`  
+**File**: [`incomplete_number_sample.wav`](./incomplete_number_sample.wav) (Click to download)  
 **Context**: "What is your phone number?" → "My number is 804"  
 **Expected Result**: CONTINUE (speaker will continue)
 
-<audio controls>
-  <source src="incomplete_number_sample.wav" type="audio/wav">
-  Your browser does not support the audio element.
-</audio>
-
 ### 2. Incomplete Response
-**File**: `incomplete.wav`  
+**File**: [`incomplete.wav`](./incomplete.wav) (Click to download)  
 **Context**: Partial response  
 **Expected Result**: CONTINUE (speaker not finished)
 
-<audio controls>
-  <source src="incomplete.wav" type="audio/wav">
-  Your browser does not support the audio element.
-</audio>
-
 ### 3. Complete Number
-**File**: `complete.wav`  
+**File**: [`complete.wav`](./complete.wav) (Click to download)  
 **Context**: "What is your phone number?" → "My number is 8042221111"  
 **Expected Result**: ENDPOINT (speaker finished)
-
-<audio controls>
-  <source src="complete.wav" type="audio/wav">
-  Your browser does not support the audio element.
-</audio>
 
 ---
 
