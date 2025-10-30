@@ -155,11 +155,37 @@ Evaluate pronunciation and sentence completion in educational applications.
 
 This repository includes three audio samples for testing and demonstration:
 
-| File | Description | Context | Expected Result |
-|------|-------------|---------|-----------------|
-| `incomplete_number_sample.wav` | Speaker saying "My number is 804" | Incomplete phone number | CONTINUE (speaker will continue) |
-| `incomplete.wav` | Partial response | Incomplete statement | CONTINUE (speaker not finished) |
-| `complete.wav` | Speaker saying "My number is 8042221111" | Complete phone number | ENDPOINT (speaker finished) |
+### 1. Incomplete Number Sample
+**File**: `incomplete_number_sample.wav`  
+**Context**: "What is your phone number?" → "My number is 804"  
+**Expected Result**: CONTINUE (speaker will continue)
+
+<audio controls>
+  <source src="incomplete_number_sample.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+### 2. Incomplete Response
+**File**: `incomplete.wav`  
+**Context**: Partial response  
+**Expected Result**: CONTINUE (speaker not finished)
+
+<audio controls>
+  <source src="incomplete.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+### 3. Complete Number
+**File**: `complete.wav`  
+**Context**: "What is your phone number?" → "My number is 8042221111"  
+**Expected Result**: ENDPOINT (speaker finished)
+
+<audio controls>
+  <source src="complete.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+---
 
 These samples demonstrate the model's ability to distinguish between complete and incomplete utterances based on both audio cues (intonation, pauses) and conversational context.
 
